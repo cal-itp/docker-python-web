@@ -11,3 +11,14 @@ services:
       - "8000"
     volumes:
       - .:/home/calitp/app
+
+  dev:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    image: cal-itp/docker-python-web:dev
+    entrypoint: sleep infinity
+    ports:
+      - "8000"
+    volumes:
+      - .:/home/calitp/app
