@@ -1,6 +1,6 @@
 # docker-python-web
 
-A base [Docker image][docker-image] for Cal-ITP Python web applications.
+A base [Docker image](https://www.docker.com/) for Cal-ITP Python web applications.
 
 Read the full documentation online: <https://docs.cal-itp.org/docker-python-web>
 
@@ -10,6 +10,8 @@ Read the full documentation online: <https://docs.cal-itp.org/docker-python-web>
 - Image configured with non-`root` user (`calitp` by default)
 - `nginx` configured as a reverse proxy listening on container port `8000`
 - `gunicorn` configured as a WSGI application server, communicates with `nginx` over Unix socket
+- `gunicorn` default configuration location in `$GUNICORN_CONF`
+- `WORKDIR` set to `/home/$USER/app`; `gunicorn` configuration in `/home/$USER/run`
 
 ## Non-Features
 
@@ -27,7 +29,7 @@ FROM ghcr.io/cal-itp/docker-python-web:main
 
 COPY my_app my_app
 
-CMD "nginx && python -m gunicorn my_app.wsgi"
+CMD "nginx && python -m gunicorn -c $GUNICORN_CONF my_app.wsgi"
 ```
 
 Or from the command line:

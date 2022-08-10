@@ -1,0 +1,13 @@
+name: cal-itp/docker-python-web
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: appcontainer/Dockerfile
+    image: cal-itp/docker-python-web:app
+    entrypoint: /bin/bash
+    ports:
+      - "8000"
+    volumes:
+      - .:/home/calitp/app
