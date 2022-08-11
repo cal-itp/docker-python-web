@@ -16,3 +16,12 @@ updates:
       include: "scope"
     labels:
       - "dependencies"
+  - package-ecosystem: "pip"
+    directory: "/appcontainer" # main requirements.txt
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    labels:
+      - "dependencies"
