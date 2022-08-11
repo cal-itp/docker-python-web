@@ -2,7 +2,7 @@
   "name": "cal-itp/docker-python-web",
   "dockerComposeFile": ["../compose.yml"],
   "service": "dev",
-  "runServices": ["dev"],
+  "runServices": ["dev", "docs"],
   "workspaceFolder": "/home/calitp/app",
   "postAttachCommand": ["/bin/bash", ".devcontainer/postAttach.sh"],
   // Set *default* container specific settings.json values on container create.
