@@ -25,7 +25,8 @@ RUN useradd --create-home --shell /bin/bash $USER && \
     chown -R $USER /home/$USER && \
     # install server components
     apt-get update && \
-    apt-get install -qq --no-install-recommends build-essential nginx
+    apt-get install -qq --no-install-recommends build-essential nginx && \
+    python -m pip install --upgrade pip
 
 # enter run (gunicorn) directory
 WORKDIR /home/$USER/run
