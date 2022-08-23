@@ -39,3 +39,16 @@ Or from the command line:
 ```shell
 docker pull ghcr.io/cal-itp/docker-python-web:main
 ```
+
+## Development
+
+Development for this repo is done within a Visual Studio Code [devcontainer](https://code.visualstudio.com/docs/remote/containers).
+
+!!! warning
+
+    You must build the base Docker image `cal-itp/docker-python-web:app` before running the devcontainer. In a terminal, run:
+    ```
+    docker compose build app
+    ```
+
+Then, with the [Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension enabled, open the folder containing this repository inside Visual Studio Code.
