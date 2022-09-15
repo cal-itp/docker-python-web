@@ -13,6 +13,7 @@ This is the documentation site for [`cal-itp/docker-python-web`](https://github.
 - `nginx` configured as a reverse proxy listening on container port `8000`
 - `gunicorn` configured as a WSGI application server, communicates with `nginx` over Unix socket
 - `gunicorn` default configuration location in `$GUNICORN_CONF`
+- `gettext` for use with web frameworks like Django
 - `WORKDIR` set to `/home/$USER/app`; `gunicorn` configuration in `/home/$USER/run`
 
 ## Non-Features
