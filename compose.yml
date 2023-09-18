@@ -1,11 +1,11 @@
-name: cal-itp/docker-python-web
+name: docker-python-web
 
 services:
   app:
     build:
       context: .
       dockerfile: appcontainer/Dockerfile
-    image: cal-itp/docker-python-web:app
+    image: docker-python-web:app
     entrypoint: /bin/bash
     ports:
       - "8000"
@@ -16,7 +16,7 @@ services:
     build:
       context: .
       dockerfile: .devcontainer/Dockerfile
-    image: cal-itp/docker-python-web:dev
+    image: docker-python-web:dev
     entrypoint: sleep infinity
     ports:
       - "8000"
@@ -24,7 +24,7 @@ services:
       - .:/home/calitp/app
 
   docs:
-    image: cal-itp/docker-python-web:dev
+    image: docker-python-web:dev
     entrypoint: mkdocs
     command: serve --dev-addr "0.0.0.0:8001"
     ports:
