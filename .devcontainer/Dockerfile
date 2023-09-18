@@ -1,4 +1,4 @@
-FROM cal-itp/docker-python-web:app
+FROM docker-python-web:app
 
 # install devcontainer requirements
 COPY .devcontainer/requirements.txt .devcontainer/requirements.txt
