@@ -6,7 +6,7 @@ Read the full documentation online: <https://docs.calitp.org/docker-python-web>
 
 ## Features
 
-- Base image `python:3.10`
+- Base image `python:3.11`
 - Image configured with non-`root` user (`calitp` by default)
 - `nginx` configured as a reverse proxy listening on container port `8000`
 - `gunicorn` configured as a WSGI application server, communicates with `nginx` over Unix socket
