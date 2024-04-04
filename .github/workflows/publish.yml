@@ -25,6 +25,9 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v3
@@ -37,6 +40,7 @@ jobs:
           cache-from: type=gha,scope=cal-itp
           cache-to: type=gha,scope=cal-itp,mode=max
           context: .
+          platforms: linux/amd64,linux/arm64
           file: appcontainer/Dockerfile
           push: true
           tags: |
