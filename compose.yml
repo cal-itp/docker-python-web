@@ -10,7 +10,7 @@ services:
     ports:
       - "8000"
     volumes:
-      - .:/home/calitp/app
+      - .:/calitp/app
 
   dev:
     build:
@@ -21,7 +21,7 @@ services:
     ports:
       - "8000"
     volumes:
-      - .:/home/calitp/app
+      - .:/calitp/app
 
   docs:
     image: docker-python-web:dev
@@ -30,4 +30,4 @@ services:
     ports:
       - "8001"
     volumes:
-      - .:/home/calitp/app
+      - .:/calitp/app

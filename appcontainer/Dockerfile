@@ -20,16 +20,16 @@ RUN useradd --create-home --shell /bin/bash $USER && \
     touch /var/run/nginx.pid && \
     chown -R $USER /var/run/nginx.pid && \
     # setup directories and permissions for gunicorn, (eventual) app
-    mkdir -p /home/$USER/app && \
-    mkdir -p /home/$USER/run && \
-    chown -R $USER /home/$USER && \
+    mkdir -p /$USER/app && \
+    mkdir -p /$USER/run && \
+    chown -R $USER /$USER && \
     # install server components
     apt-get update && \
     apt-get install -qq --no-install-recommends build-essential nginx gettext && \
     python -m pip install --upgrade pip
 
 # enter run (gunicorn) directory
-WORKDIR /home/$USER/run
+WORKDIR /$USER/run
 
 # switch to non-root $USER
 USER $USER
@@ -43,13 +43,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # copy gunicorn config file
 COPY appcontainer/gunicorn.conf.py gunicorn.conf.py
-ENV GUNICORN_CONF "/home/$USER/run/gunicorn.conf.py"
+ENV GUNICORN_CONF "/$USER/run/gunicorn.conf.py"
 
 # overwrite default nginx.conf
 COPY appcontainer/nginx.conf /etc/nginx/nginx.conf
 
 # enter app directory
-WORKDIR /home/$USER/app
+WORKDIR /$USER/app
 
 # basic bash entrypoint
 ENTRYPOINT ["/bin/bash"]
