@@ -4,7 +4,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     USER=calitp
 
-EXPOSE 8000
+EXPOSE 8000 2222
 
     # create non-root $USER and home directory
 RUN useradd --create-home --shell /bin/bash $USER && \
@@ -25,8 +25,12 @@ RUN useradd --create-home --shell /bin/bash $USER && \
     chown -R $USER /home/$USER && \
     # install server components
     apt-get update && \
-    apt-get install -qq --no-install-recommends build-essential nginx gettext && \
+    apt-get install -qq --no-install-recommends build-essential dialog nginx gettext && \
+    apt-get install -qq --no-install-recommends build-essential openssh-server && \
+    echo "root:Docker!" | chpasswd && \
     python -m pip install --upgrade pip
+
+COPY appcontainer/sshd_config /etc/ssh/
 
 # enter run (gunicorn) directory
 WORKDIR /home/$USER/run
