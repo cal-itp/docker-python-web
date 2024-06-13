@@ -34,8 +34,12 @@ WORKDIR /$USER/run
 # switch to non-root $USER
 USER $USER
 
-# update PATH for local pip installs
-ENV PATH "$PATH:/home/$USER/.local/bin"
+# update env for local pip installs
+# see https://docs.python.org/3/using/cmdline.html#envvar-PYTHONUSERBASE
+# since all `pip install` commands are in the context of $USER
+# $PYTHONUSERBASE is the location used by default
+ENV PATH="$PATH:/$USER/.local/bin" \
+    PYTHONUSERBASE="/$USER/.local"
 
 # install python dependencies
 COPY appcontainer/requirements.txt requirements.txt
