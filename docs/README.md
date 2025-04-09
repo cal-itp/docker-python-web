@@ -8,7 +8,7 @@ This is the documentation site for [`cal-itp/docker-python-web`](https://github.
 
 ## Features
 
-- Base image `python:3.11`
+- Base image `python:3.12`
 - Image configured with non-`root` user (`calitp` by default)
 - `nginx` configured as a reverse proxy listening on container port `8000`
 - `gunicorn` configured as a WSGI application server, communicates with `nginx` over Unix socket
