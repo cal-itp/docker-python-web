@@ -21,15 +21,15 @@ ENV PYTHONUNBUFFERED=${PYTHONUNBUFFERED} \
     PYTHONDONTWRITEBYTECODE=${PYTHONDONTWRITEBYTECODE} \
     HOME=/home/${USER} \
     USER=${USER} \
-    PATH="/home/${USER}/.local/bin:$PATH" \
+    PATH="/${USER}/.local/bin:$PATH" \
     # update env for local pip installs
     # see https://docs.python.org/3/using/cmdline.html#envvar-PYTHONUSERBASE
     # since all `pip install` commands are in the context of $USER
     # $PYTHONUSERBASE is the location used by default
-    PYTHONUSERBASE="/home/${USER}/.local" \
-    # where to store the pip cache (use the default)
+    PYTHONUSERBASE="/${USER}/.local" \
+    # where to store the pip cache
     # https://pip.pypa.io/en/stable/cli/pip/#cmdoption-cache-dir
-    PIP_CACHE_DIR="/home/${USER}/.cache/pip" \
+    PIP_CACHE_DIR="/${USER}/.cache/pip" \
     GUNICORN_CONF="/$USER/run/gunicorn.conf.py"
 
 EXPOSE 8000
@@ -43,7 +43,7 @@ RUN --mount=type=cache,id=apt-archives,sharing=locked,target=/var/cache/apt/arch
     # pip cache dir must be created and owned by the user to work with BuildKit cache
     mkdir -p ${PIP_CACHE_DIR} && \
     # own the parent directory of PIP_CACHE_DIR
-    chown -R ${USER}:${USER} /home/${USER}/.cache && \
+    chown -R ${USER}:${USER} /${USER}/.cache && \
     # setup $USER permissions for nginx
     mkdir -p /var/cache/nginx && \
     chown -R $USER:$USER /var/cache/nginx && \
