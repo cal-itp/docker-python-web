@@ -52,4 +52,10 @@ Development for this repo is done within a Visual Studio Code [devcontainer](htt
     docker compose build app
     ```
 
+The image you just built can be accessed from other (local) codebases via:
+
+```dockerfile
+FROM docker-python-web:app
+```
+
 Then, with the [Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension enabled, open the folder containing this repository inside Visual Studio Code.

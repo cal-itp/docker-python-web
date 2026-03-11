@@ -51,6 +51,12 @@ docker compose build app
 
 Then, with the [Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension enabled, open the folder containing this repository inside Visual Studio Code.
 
+The image you just built can be accessed from other (local) codebases via:
+
+```dockerfile
+FROM docker-python-web:app
+```
+
 ## License
 
 [Apache 2.0](LICENSE)
