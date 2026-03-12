@@ -6,9 +6,9 @@ ARG PYTHON_VERSION=3.12 \
     USER_UID=1000 \
     USER_GID=1000
 
-# we can start using debian 13+ as soon as an ubuntu 25.04+ hosted github actions runner image is available
+# we can start using debian 13 as soon as an ubuntu 26.04 hosted github actions runner image is available
 # https://github.com/actions/runner-images
-# https://launchpad.net/ubuntu/plucky/+package/gettext
+# https://launchpad.net/ubuntu/resolute/+package/gettext
 # https://packages.debian.org/trixie/gettext
 FROM python:3.12-bookworm
 
