@@ -57,6 +57,10 @@ The image you just built can be accessed from other (local) codebases via:
 FROM docker-python-web:app
 ```
 
+## Docs
+
+While the devcontainer is running, documentation can be found at [http://localhost:8001/docker-python-web](http://localhost:8001/docker-python-web)
+
 ## License
 
 [Apache 2.0](LICENSE)
