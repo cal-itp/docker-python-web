@@ -8,7 +8,7 @@ This is the documentation site for [`cal-itp/docker-python-web`](https://github.
 
 ## Features
 
-- Base image `python:3.12`
+- Base image `python:3.12-bookworm`
 - Image configured with non-`root` user (`calitp` by default)
 - `nginx` configured as a reverse proxy listening on container port `8000`
 - `gunicorn` configured as a WSGI application server, communicates with `nginx` over Unix socket
@@ -53,3 +53,9 @@ Development for this repo is done within a Visual Studio Code [devcontainer](htt
     ```
 
 Then, with the [Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension enabled, open the folder containing this repository inside Visual Studio Code.
+
+The image you just built can be accessed from other (local) codebases via:
+
+```dockerfile
+FROM docker-python-web:app
+```

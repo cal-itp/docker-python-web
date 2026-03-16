@@ -6,7 +6,7 @@ Read the full documentation online: <https://docs.calitp.org/docker-python-web>
 
 ## Features
 
-- Base image `python:3.12`
+- Base image `python:3.12-bookworm`
 - Image configured with non-`root` user (`calitp` by default)
 - `nginx` configured as a reverse proxy listening on container port `8000`
 - `gunicorn` configured as a WSGI application server, communicates with `nginx` over Unix socket
@@ -50,6 +50,16 @@ docker compose build app
 ```
 
 Then, with the [Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension enabled, open the folder containing this repository inside Visual Studio Code.
+
+The image you just built can be accessed from other (local) codebases via:
+
+```dockerfile
+FROM docker-python-web:app
+```
+
+## Docs
+
+While the devcontainer is running, documentation can be found at [http://localhost:8001/docker-python-web](http://localhost:8001/docker-python-web)
 
 ## License
 
