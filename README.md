@@ -2,8 +2,6 @@
 
 A base [Docker image](https://www.docker.com/) for Cal-ITP Python web applications.
 
-Read the full documentation online: <https://docs.calitp.org/docker-python-web>
-
 ## Features
 
 - Base image `python:3.12-bookworm`
