@@ -24,7 +24,7 @@ A base [Docker image](https://www.docker.com/) for Cal-ITP Python web applicatio
 Reference one of the `image:tag` from GitHub Container Registry in a `Dockerfile`. E.g. for the `main` branch:
 
 ```dockerfile
-FROM ghcr.io/cal-itp/docker-python-web:main
+FROM ghcr.io/cal-itp/docker-python-web:1.0.0
 
 COPY my_app my_app
 
@@ -34,7 +34,7 @@ CMD "nginx && python -m gunicorn -c $GUNICORN_CONF my_app.wsgi"
 Or from the command line:
 
 ```shell
-docker pull ghcr.io/cal-itp/docker-python-web:main
+docker pull ghcr.io/cal-itp/docker-python-web:1.0.0
 ```
 
 ## Development
