@@ -59,27 +59,28 @@ jobs:
           platforms: linux/amd64,linux/arm64
           file: appcontainer/Dockerfile
           push: true
+          # ghcr.io/${{ github.repository }}:${{ github.ref_name }}
           tags: |
-            ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+            # ghcr.io/${{ github.repository }}:1.0.0-rc
             ghcr.io/${{ github.repository }}:${{ github.sha }}
           annotations: ${{ steps.meta.outputs.annotations }}
 
-  release:
-    needs: publish
-    if: ${{ !contains(github.ref_name, '-rc') }}
-    runs-on: ubuntu-latest
-    permissions:
-      # https://github.com/softprops/action-gh-release#permissions
-      contents: write
+  # release:
+  #   needs: publish
+  #   if: ${{ !contains(github.ref_name, '-rc') }}
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     # https://github.com/softprops/action-gh-release#permissions
+  #     contents: write
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v6
+  #       with:
+  #         fetch-depth: 0
 
-      - name: Release
-        uses: softprops/action-gh-release@v2
-        with:
-          prerelease: false
-          generate_release_notes: true
+  #     - name: Release
+  #       uses: softprops/action-gh-release@v2
+  #       with:
+  #         prerelease: false
+  #         generate_release_notes: true
