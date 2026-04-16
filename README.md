@@ -21,7 +21,7 @@ A base [Docker image](https://www.docker.com/) for Cal-ITP Python web applicatio
 
 ## Usage
 
-Reference one of the `image:tag` from GitHub Container Registry in a `Dockerfile`. E.g. for the `main` branch:
+Reference an `image:tag` from GitHub Container Registry in a `Dockerfile`. E.g. for the `1.0.0` release:
 
 ```dockerfile
 FROM ghcr.io/cal-itp/docker-python-web:1.0.0
