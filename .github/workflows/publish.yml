@@ -48,11 +48,15 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}:${{ github.ref_name }}
             ghcr.io/${{ github.repository }}:${{ github.sha }}
+          # https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.description="A base Docker image for Cal-ITP Python web applications"
+            org.opencontainers.image.licenses="Apache-2.0"
 
   release:
     needs: publish
-    # TODO: uncomment before merging
-    # if: ${{ !contains(github.ref_name, '-rc') }}
+    if: ${{ !contains(github.ref_name, '-rc') }}
     runs-on: ubuntu-latest
     permissions:
       # https://github.com/softprops/action-gh-release#permissions

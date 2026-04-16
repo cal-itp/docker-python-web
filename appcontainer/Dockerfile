@@ -20,11 +20,6 @@ ARG PYTHON_VERSION \
     USER_UID \
     USER_GID
 
-# https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images
-LABEL org.opencontainers.image.source="https://github.com/calitp/docker-python-web"
-LABEL org.opencontainers.image.description="A base Docker image for Cal-ITP Python web applications"
-LABEL org.opencontainers.image.licenses="Apache-2.0"
-
 # set env vars for the user, including HOME
 ENV PYTHONUNBUFFERED=${PYTHONUNBUFFERED} \
     PYTHONDONTWRITEBYTECODE=${PYTHONDONTWRITEBYTECODE} \
