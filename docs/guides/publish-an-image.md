@@ -12,7 +12,7 @@ Given a version number `MAJOR.MINOR.PATCH`, increment the:
 - MINOR version when you add functionality in a backward compatible manner
 - PATCH version when you make backward compatible bug fixes
 
-Images are published to the GitHub Container Registry when a tag is pushed with a version number similar to either of the following:
+Images are published to the GitHub Container Registry [when a tag is pushed](https://docs.calitp.org/benefits/guides/release/#2-create-a-release-tag-on-main-and-push-it) with a version number similar to either of the following:
 
 ```bash
 # genuine release
