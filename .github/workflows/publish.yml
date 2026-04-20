@@ -29,6 +29,14 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
 
+      - name: Cache Parameters
+        id: cache_params
+        run: |
+          CACHE_SCOPE="cal-itp"
+
+          echo "cache_from_args=type=gha,scope=${CACHE_SCOPE},ref=${{ github.ref }}" >> $GITHUB_OUTPUT
+          echo "cache_to_args=type=gha,scope=${CACHE_SCOPE},mode=max,ref=${{ github.ref }}" >> $GITHUB_OUTPUT
+
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v4
@@ -38,9 +46,8 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           build-args: GIT-SHA=${{ github.sha }}
-          # https://docs.docker.com/build/ci/github-actions/cache/#github-cache
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: ${{ steps.cache_params.outputs.cache_from_args }}
+          cache-to: ${{ steps.cache_params.outputs.cache_to_args }}
           context: .
           platforms: linux/amd64,linux/arm64
           file: appcontainer/Dockerfile
