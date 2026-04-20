@@ -2,9 +2,9 @@
 
 Historically, a new image was published each time a commit was pushed to `main`. Now we use [tag-based deployment](https://github.com/cal-itp/docker-python-web/issues/73).
 
-The steps to release are nearly identical to [benefits](https://docs.calitp.org/benefits/guides/release/), with the exception that we use a [SemVer](https://semver.org/) numbering scheme.
+The steps to release are nearly identical to [Benefits](https://docs.calitp.org/benefits/guides/release/), with the exception that we use a [SemVer](https://semver.org/) numbering scheme.
 
-## 0. Decide on the new version number
+## Decide on the new version number
 
 Given a version number `MAJOR.MINOR.PATCH`, increment the:
 
