@@ -1,16 +1,13 @@
 # declare default build args for later stages
-ARG PYTHON_VERSION=3.12 \
+ARG PYTHON_VERSION=3.14 \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     USER=calitp \
     USER_UID=1000 \
     USER_GID=1000
 
-# we can start using debian 13 as soon as an ubuntu 26.04 hosted github actions runner image is available
-# https://github.com/actions/runner-images
-# https://launchpad.net/ubuntu/resolute/+package/gettext
-# https://packages.debian.org/trixie/gettext
-FROM python:3.12-bookworm
+# the version of gettext packaged with Debian 13 (AKA "trixie") matches Ubuntu 26.04 (our hosted Github Actions runner)
+FROM python:3.14-trixie
 
 # renew top-level args in this stage
 ARG PYTHON_VERSION \
