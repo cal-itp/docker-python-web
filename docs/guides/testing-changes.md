@@ -16,7 +16,7 @@ In your `benefits` repository:
 1. In the benefits Dockerfile:
 
    ```bash
-   ghcr.io/cal-itp/docker-python-web:main
+   ghcr.io/cal-itp/docker-python-web:<version>
    # becomes
    docker-python-web:app
    ```
@@ -38,7 +38,7 @@ In your `eligibility-server` repository
 1. In the eligibility-server Dockerfile:
 
    ```bash
-     ghcr.io/cal-itp/docker-python-web:main
+     ghcr.io/cal-itp/docker-python-web:<version>
      # becomes
      docker-python-web:app
    ```

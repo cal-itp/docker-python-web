@@ -4,7 +4,7 @@ A base [Docker image](https://www.docker.com/) for Cal-ITP Python web applicatio
 
 ## Features
 
-- Base image `python:3.12-bookworm`
+- Base image `python:3.14-trixie`
 - Image configured with non-`root` user (`calitp` by default)
 - `nginx` configured as a reverse proxy listening on container port `8000`
 - `gunicorn` configured as a WSGI application server, communicates with `nginx` over Unix socket
